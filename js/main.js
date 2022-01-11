@@ -30,7 +30,7 @@
   }
 
   function utilizeAPIResponse(results){
-  	console.log("hello");
+  	
   	let generatedData = "";
   	let counter = 0;
   	let oddOrEven="";
@@ -93,7 +93,6 @@
 	  	document.getElementById('19').onclick=updateNutritionBox;  
 	  }
 	  catch(e){
-	  	console.log(e);
 	  }
   }
 
@@ -116,18 +115,9 @@
 		    document.getElementById("toggleDisplayAllResults").innerHTML="More Results";
   		}
   })
-/*
-	   <p class="calories">Calories: ${result.recipe.calories.toFixed(2)}</p>
-	   <p class="fat">Fat: ${result.recipe.digest[0].total.toFixed(2)}</p>
-	   <p class="protein">Protein: ${result.recipe.digest[2].total.toFixed(2)}</p>
-	   <p class="carbs">Carbohydrates: ${result.recipe.digest[1].total.toFixed(2)}</p>
-*/
 
   const updateNutritionBox = function(){
-  	console.log("This is the button that triggered me: "+this.id);
-  	console.log(returnedRecipes[this.id].recipe.calories.toFixed(2))
   	document.getElementById("infoParent").style.display="flex";
-  	console.log(returnedRecipes[this.id])
   	let newNutritionalData=`
   		<p id="calories">Calories: ${returnedRecipes[this.id].recipe.calories.toFixed(2)}</p>
   	`
