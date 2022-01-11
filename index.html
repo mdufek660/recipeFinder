@@ -1,1 +1,76 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Researcher</title>
+
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="header-div">
+    </div>
+
+    <div class="main-wrapper">
+      <div class="main-text">
+        <h2>Michael's Recipe Info!</h2>
+        <p>
+          Knowing what to make for a given meal can be a challenge at times; try entering some keywords and discover some new recipes! You can also see the nutritional information and the ingredients!
+        </p>
+      </div>
+
+      <section>
+        <div id="mainContainer" class="main-container">
+          <form id="searchText" class="main-form">
+            <i class="fas fa-search searchicon"></i>
+            <input
+              type="text"
+              placeholder="Search for recipes"
+            />
+          </form>
+
+          <div id="searchResultsContainer" class="search-results">
+            
+          </div>
+      	  <a id="toggleDisplayAllResults" class="buttonDesign">More Results</a>
+
+      	  <div class="infoParent" id="infoParent">
+	      	  <div class="infoBox" id="nutritionBox" style="float:left">
+	      	  	<h2>Nutritional Information for Selected Meal</h2>
+	      	  	<div id="nutritionInfoHere"></div>
+	      	  </div>
+	      	  	
+	      	  <div class="infoBox2 " id="ingredientBox" style="float:left">
+	      	  	<h2>Ingredients for Selected Meal</h2>
+	      	  	<div id="ingredientInfoHere"></div>
+	      	  </div>
+	      </div>
+          <!-- main container ends-->
+        </div>
+      </section>
+
+
+      
+    </div>
+  </body>
+
+
+  <footer>
+    <div class="contact-div">
+      <b>Contact me at mdufek.660@gmail.com</b>
+      
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</html>

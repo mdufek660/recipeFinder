@@ -1,0 +1,223 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.header-div {
+  height: 300px;
+  /* background-color: #4059ad; */
+  background-image: url(https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2020_25/1581912/ribeye-salad-today-061920-tease.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-div h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 80px;
+  margin: 0;
+  padding-top: 80px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Inter", sans-serif;
+}
+
+/* MAIN search section */
+.main-wrapper {
+  padding: 30px;
+  font-family: "Inter", sans-serif;
+  min-height: calc(100vh - 40px);
+  font-size: 20px;
+}
+
+.main-text {
+  padding: 30px;
+}
+
+.main-text b {
+  color: #f4b942;
+}
+
+form {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  border-radius: 5px;
+  border: solid 3px rgba(0, 0, 0, 0.096);
+}
+
+form input {
+  width: 90%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 2rem;
+}
+
+.searchicon {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.404);
+}
+
+/* results*/
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-results {
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
+  margin-bottom: 10p;
+}
+
+.item {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.oddItem{
+  background-color: #9b6e51;
+}
+
+.evenItem{
+  background-color: #6b4b38;
+}
+
+.item img {
+  width: 100%;
+  height: 300px;
+  border-radius: 4px;
+}
+
+.item .flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipe-title {
+  margin: 20px 10px 0 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.buttonDesign {
+  text-decoration: none;
+  text-align: center;
+  width: 130px;
+  padding: 10px 0;
+  background-color: #409d59;
+  color: white;
+  border-radius: 5px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.anchor-left {
+  position:  relative;
+  bottom: 0px;
+  left: 0px;
+}
+
+.anchor-right{
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+}
+
+footer {
+  background-color: #6bc45a;
+  font-family: "Inter", sans-serif;
+  height: 100px;
+}
+
+.contact-div {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding: 30px;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-div b {
+  color: white;
+}
+
+.infoParent{
+  display: flex;
+  background-color: #aaeeaa;
+}
+
+.infoBox {
+  float: "left";
+  background-color: #9b6e51;
+  width: 48.5%;
+  margin: 1%;
+  border-radius: 8px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+
+.infoBox2 {
+  float: "right";
+  background-color: #6b4b38;
+  width: 48.5%;
+  margin-right: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 8px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  form {
+    max-width: 400px;
+  }
+
+  .search-results {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item img {
+    height: auto;
+    width: 50%;
+  }
+
+  .recipe-title {
+    font-size: 18px;
+  }
+
+  .view-recipe {
+    width: auto;
+  }
+}
