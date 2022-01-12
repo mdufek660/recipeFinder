@@ -17,9 +17,18 @@
   searchText.addEventListener('submit', (e) => {
     e.preventDefault();
     searchQuery = e.target.querySelector('input').value;
-    callAPI();
+    debouncer(callAPI(), 200);
   	document.getElementById("infoParent").style.display='none';
   });
+
+  function debouncer(func, wait){
+  	let timeout;
+  	return function(...args){
+  		const context = this;
+  		if(timeout){clearTimeout(timeout);}
+  		timeout = setTimeout(()=>{timeout=null; func.apply(context, args)}, wait)
+  	}
+  }
 
   async function callAPI(){
   	const apiURLPath=FIRST_HALF_URL+searchQuery+SECOND_HALF_URL;
@@ -40,29 +49,29 @@
     	else{oddOrEven="oddItem"}
 
     	if(counter<displayThreshold){
-      generatedData += `
-	  <div class="item alwaysShow `+oddOrEven+`">
-	    <h2 class="recipe-title">${result.recipe.label}</h2>
-	  	<img src="${result.recipe.image}">
-	    <div class="flex-container anchor-left">
-	    <a class="buttonDesign anchor-left" href="${result.recipe.url}" target="_blank">View Recipe</a>
-	    <a class="buttonDesign anchor-right" id="`+counter+`">Nutrition & Ingredients</a>
-	  </div>
-	  </div>`;
-	}
+	      generatedData += `
+				  <div class="item alwaysShow `+oddOrEven+`">
+				    <h2 class="recipe-title">${result.recipe.label}</h2>
+				  	<img src="${result.recipe.image}">
+				    <div class="flex-container anchor-left">
+				    <a class="buttonDesign anchor-left" href="${result.recipe.url}" target="_blank">View Recipe</a>
+				    <a class="buttonDesign anchor-right" id="`+counter+`">Nutrition & Ingredients</a>
+				  </div>
+				  </div>`;
+			}	
 	else{
-      generatedData += `
-	  <div class="item toggleShow `+oddOrEven+`" >
-	    <h2 class="recipe-title">${result.recipe.label}</h2>
-	  <img src="${result.recipe.image}">
-	    <div class="flex-container">
-	    <a class="buttonDesign anchor-left" href="${result.recipe.url}" target="_blank">View Recipe</a>
-	    <a class="buttonDesign anchor-right" id="`+counter+`">Nutrition & Ingredients</a>
-	  </div>
-	  </div>`;
-	}
+	      generatedData += `
+				  <div class="item toggleShow `+oddOrEven+`" >
+				    <h2 class="recipe-title">${result.recipe.label}</h2>
+				  <img src="${result.recipe.image}">
+				    <div class="flex-container">
+				    <a class="buttonDesign anchor-left" href="${result.recipe.url}" target="_blank">View Recipe</a>
+				    <a class="buttonDesign anchor-right" id="`+counter+`">Nutrition & Ingredients</a>
+				  </div>
+				  </div>`;
+			}
 	counter++;
-    });
+  });
     searchResultsContainer.innerHTML = generatedData;
     let resultsToHide=document.getElementsByClassName("toggleShow");
     for(let entry of resultsToHide){
@@ -71,26 +80,26 @@
   	document.getElementById("toggleDisplayAllResults").style.display="block";
 
 	  try{
-	  	document.getElementById('0').onclick=updateNutritionBox;
-	  	document.getElementById('1').onclick=updateNutritionBox;
-	  	document.getElementById('2').onclick=updateNutritionBox;
-	  	document.getElementById('3').onclick=updateNutritionBox;
-	  	document.getElementById('4').onclick=updateNutritionBox;
-	  	document.getElementById('5').onclick=updateNutritionBox;
-	  	document.getElementById('6').onclick=updateNutritionBox;
-	  	document.getElementById('7').onclick=updateNutritionBox;
-	  	document.getElementById('8').onclick=updateNutritionBox;
-	  	document.getElementById('9').onclick=updateNutritionBox;
-	  	document.getElementById('10').onclick=updateNutritionBox;
-	  	document.getElementById('11').onclick=updateNutritionBox;
-	  	document.getElementById('12').onclick=updateNutritionBox;
-	  	document.getElementById('13').onclick=updateNutritionBox;
-	  	document.getElementById('14').onclick=updateNutritionBox;
-	  	document.getElementById('15').onclick=updateNutritionBox;
-	  	document.getElementById('16').onclick=updateNutritionBox;
-	  	document.getElementById('17').onclick=updateNutritionBox;
-	  	document.getElementById('18').onclick=updateNutritionBox;
-	  	document.getElementById('19').onclick=updateNutritionBox;  
+	  	document.getElementById('0').onclick=updateInformationBox;
+	  	document.getElementById('1').onclick=updateInformationBox;
+	  	document.getElementById('2').onclick=updateInformationBox;
+	  	document.getElementById('3').onclick=updateInformationBox;
+	  	document.getElementById('4').onclick=updateInformationBox;
+	  	document.getElementById('5').onclick=updateInformationBox;
+	  	document.getElementById('6').onclick=updateInformationBox;
+	  	document.getElementById('7').onclick=updateInformationBox;
+	  	document.getElementById('8').onclick=updateInformationBox;
+	  	document.getElementById('9').onclick=updateInformationBox;
+	  	document.getElementById('10').onclick=updateInformationBox;
+	  	document.getElementById('11').onclick=updateInformationBox;
+	  	document.getElementById('12').onclick=updateInformationBox;
+	  	document.getElementById('13').onclick=updateInformationBox;
+	  	document.getElementById('14').onclick=updateInformationBox;
+	  	document.getElementById('15').onclick=updateInformationBox;
+	  	document.getElementById('16').onclick=updateInformationBox;
+	  	document.getElementById('17').onclick=updateInformationBox;
+	  	document.getElementById('18').onclick=updateInformationBox;
+	  	document.getElementById('19').onclick=updateInformationBox;  
 	  }
 	  catch(e){
 	  }
@@ -116,7 +125,7 @@
   		}
   })
 
-  const updateNutritionBox = function(){
+  const updateInformationBox = function(){
   	document.getElementById("infoParent").style.display="flex";
   	let newNutritionalData=`
   		<p id="calories">Calories: ${returnedRecipes[this.id].recipe.calories.toFixed(2)}</p>
